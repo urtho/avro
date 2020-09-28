@@ -1,4 +1,4 @@
-module github.com/urtho/avro
+module github.com/khezen/avro
 
 go 1.14
 
