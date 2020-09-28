@@ -18,7 +18,7 @@ func SQLDatabase2AVRO(db *sql.DB, dbName string) ([]avro.RecordSchema, error) {
 		schemas   = make([]avro.RecordSchema, 0, len(tables))
 	)
 	for _, tableName = range tables {
-		schema, err = SQLTable2AVRO(db, dbName, tableName)
+		schema, err = SQLTable2AVRO(db, "", dbName, tableName)
 		if err != nil {
 			return nil, err
 		}

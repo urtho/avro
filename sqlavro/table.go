@@ -9,15 +9,24 @@ import (
 )
 
 // SQLTable2AVRO - translate the given SQL table to AVRO schema
-func SQLTable2AVRO(db *sql.DB, dbName, tableName string) (*avro.RecordSchema, error) {
-	qBuf := bytes.NewBufferString(`
-		 SELECT TABLE_SCHEMA,COLUMN_NAME,DATA_TYPE,IS_NULLABLE,COLUMN_DEFAULT,NUMERIC_PRECISION,NUMERIC_SCALE,CHARACTER_MAXIMUM_LENGTH
-		 FROM INFORMATION_SCHEMA.COLUMNS 
-		 WHERE TABLE_NAME=?
-	`)
+func SQLTable2AVRO(db *sql.DB, dbName, schema, tableName string) (*avro.RecordSchema, error) {
+	var qBuf *Buffer
+	if len(dbName > 0) {
+		qBuf = bytes.NewBufferString(`
+			 SELECT TABLE_SCHEMA,COLUMN_NAME,DATA_TYPE,IS_NULLABLE,COLUMN_DEFAULT,NUMERIC_PRECISION,NUMERIC_SCALE,CHARACTER_MAXIMUM_LENGTH
+			 FROM [`+dbName+`].INFORMATION_SCHEMA.COLUMNS 
+			 WHERE TABLE_NAME=?
+		`)
+	} else {
+		qBuf = bytes.NewBufferString(`
+			 SELECT TABLE_SCHEMA,COLUMN_NAME,DATA_TYPE,IS_NULLABLE,COLUMN_DEFAULT,NUMERIC_PRECISION,NUMERIC_SCALE,CHARACTER_MAXIMUM_LENGTH
+			 FROM INFORMATION_SCHEMA.COLUMNS 
+			 WHERE TABLE_NAME=?
+		`)
+	}
 	params := make([]interface{}, 0, 2)
 	params = append(params, tableName)
-	if len(dbName) > 0 {
+	if len(schema) > 0 {
 		qBuf.WriteString(` AND TABLE_SCHEMA=?`)
 		params = append(params, dbName)
 	}
