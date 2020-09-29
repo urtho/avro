@@ -6,6 +6,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"bytes"
 
 	"github.com/khezen/avro"
 )
