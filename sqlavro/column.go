@@ -62,7 +62,7 @@ func sqlColumn2AVROType(columnName string, dataType SQLType, isNullable bool, nu
 		return avro.TypeInt32, nil
 	case BigInt:
 		return avro.TypeInt64, nil
-	case Float:
+	case Float, Real:
 		return avro.TypeFloat32, nil
 	case Double:
 		return avro.TypeFloat64, nil
@@ -125,6 +125,6 @@ func sqlDefault2AVRODefault(dataType SQLType, sqlDefaultValue []byte) (avroDefau
 		}
 		return []byte(strconv.Itoa(int(t.Unix())))
 	default:
-		return sqlDefaultValue
+		return bytes.TrimRight(bytes.TrimLeft(sqlDefaultValue, "("), ")")
 	}
 }

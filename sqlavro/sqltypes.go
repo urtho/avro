@@ -50,6 +50,7 @@ const (
 	BigInt SQLType = "bigint"
 	// Float -
 	Float SQLType = "float"
+	Real SQLType = "real"
 	// Double -
 	Double SQLType = "double"
 	// Decimal -
