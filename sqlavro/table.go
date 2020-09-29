@@ -11,7 +11,7 @@ import (
 // SQLTable2AVRO - translate the given SQL table to AVRO schema
 func SQLTable2AVRO(db *sql.DB, dbName, schema, tableName string) (*avro.RecordSchema, error) {
 	if len(dbName) > 0 {
-	  dbName = dbName + '.'
+	  dbName = dbName + "."
 	}
 	qBuf := bytes.NewBufferString(`
 		 SELECT TABLE_SCHEMA,COLUMN_NAME,DATA_TYPE,IS_NULLABLE,COLUMN_DEFAULT,NUMERIC_PRECISION,NUMERIC_SCALE,CHARACTER_MAXIMUM_LENGTH
