@@ -121,6 +121,11 @@ func sqlDefault2AVRODefault(dataType SQLType, sqlDefaultValue []byte) (avroDefau
 			t = t.AddDate(1970, 0, 0)
 		}
 		return []byte(strconv.Itoa(int(t.Unix())))
+	case Bit:
+		if string(bytes.TrimRight(bytes.TrimLeft(sqlDefaultValue, "("), ")")) == "0" {
+			return []byte("false")
+		}
+		return []byte("true")
 	default:
 		return bytes.TrimRight(bytes.TrimLeft(sqlDefaultValue, "("), ")")
 	}

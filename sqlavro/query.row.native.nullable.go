@@ -16,6 +16,8 @@ func sql2NativeFieldNullable(schema avro.Schema, sqlField interface{}) (interfac
 		return nil, err
 	}
 	switch subSchema.TypeName() {
+	case avro.TypeBoolean:
+		return sql2NativeBoolNullable(sqlField)
 	case avro.TypeInt64:
 		return sql2NativeInt64Nullable(sqlField)
 	case avro.TypeInt32:
@@ -37,6 +39,7 @@ func sql2NativeFieldNullable(schema avro.Schema, sqlField interface{}) (interfac
 	case avro.Type(avro.LogicalTypeDecimal):
 		return sql2NativeDecimalNullable(sqlField)
 	}
+	fmt.Printf("Schema: %+v", subSchema)
 	return nil, ErrUnsupportedTypeForSQL
 }
 
@@ -44,6 +47,14 @@ func sql2NativeInt64Nullable(sqlField interface{}) (interface{}, error) {
 	nullableField := sqlField.(*sql.NullInt64)
 	if nullableField.Valid {
 		return map[string]interface{}{string(avro.TypeInt64): nullableField.Int64}, nil
+	}
+	return nil, nil
+}
+
+func sql2NativeBoolNullable(sqlField interface{}) (interface{}, error) {
+	nullableField := sqlField.(*sql.NullBool)
+	if nullableField.Valid {
+		return map[string]interface{}{string(avro.TypeBoolean): nullableField.Bool}, nil
 	}
 	return nil, nil
 }

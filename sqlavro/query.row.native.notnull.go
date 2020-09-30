@@ -10,6 +10,8 @@ import (
 
 func sql2NativeFieldNotNull(schema avro.Schema, sqlField interface{}) (interface{}, error) {
 	switch schema.TypeName() {
+	case avro.TypeBoolean:
+		return *sqlField.(*bool), nil
 	case avro.TypeInt64:
 		return *sqlField.(*int64), nil
 	case avro.TypeInt32:
@@ -31,6 +33,8 @@ func sql2NativeFieldNotNull(schema avro.Schema, sqlField interface{}) (interface
 	case avro.Type(avro.LogicalTypeDecimal):
 		return sql2NativeDecimal(sqlField)
 	}
+	fmt.Printf("Schema: %+v", schema)
+
 	return nil, ErrUnsupportedTypeForSQL
 }
 

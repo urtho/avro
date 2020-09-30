@@ -2,6 +2,7 @@ package sqlavro
 
 import (
 	"database/sql"
+	"fmt"
 
 	"github.com/khezen/avro"
 )
@@ -27,6 +28,9 @@ func renderSQLField(schema avro.Schema) (interface{}, error) {
 
 func renderSQLFieldNotNull(schema avro.Schema) (interface{}, error) {
 	switch schema.TypeName() {
+	case avro.TypeBoolean:
+		var field bool
+		return &field, nil
 	case avro.TypeInt64:
 		var field int64
 		return &field, nil
@@ -48,6 +52,7 @@ func renderSQLFieldNotNull(schema avro.Schema) (interface{}, error) {
 		var field []byte
 		return &field, nil
 	}
+	fmt.Printf("!Schema: %+v\n", schema)
 	return nil, ErrUnsupportedTypeForSQL
 }
 
@@ -63,6 +68,9 @@ func renderSQLFieldNullable(schema avro.Schema) (interface{}, error) {
 		return nil, err
 	}
 	switch subSchema.TypeName() {
+	case avro.TypeBoolean:
+		var field sql.NullBool
+		return &field, nil
 	case avro.TypeFloat32, avro.TypeFloat64:
 		var field sql.NullFloat64
 		return &field, nil
@@ -78,6 +86,7 @@ func renderSQLFieldNullable(schema avro.Schema) (interface{}, error) {
 		var field []byte
 		return &field, nil
 	}
+	fmt.Printf("!Schema: %+v\n", schema)
 	return nil, ErrUnsupportedTypeForSQL
 }
 
