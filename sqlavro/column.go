@@ -1,12 +1,12 @@
 package sqlavro
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"strconv"
 	"strings"
 	"time"
-	"bytes"
 
 	"github.com/khezen/avro"
 )
@@ -48,11 +48,7 @@ func sqlColumn2AVRO(columnName string, dataType SQLType, isNullable bool, defaul
 func sqlColumn2AVROType(columnName string, dataType SQLType, isNullable bool, numPrecision, numScale, charBytesLen int) (fieldType avro.Schema, err error) {
 	switch dataType {
 	case Bit:
-		return &avro.FixedSchema{
-			Name: columnName,
-			Type: avro.TypeFixed,
-			Size: numPrecision,
-		}, nil
+		return avro.TypeBoolean, nil
 	case Char, NChar, VarChar, NVarChar,
 		Text, TinyText, MediumText, LongText,
 		Enum, Set:
