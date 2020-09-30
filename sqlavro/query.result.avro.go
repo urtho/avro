@@ -19,7 +19,7 @@ func query2AVRO(cfg QueryConfig) (avroBytes []byte, newCriteria []Criterion, err
 	}
 	records := make([]map[string]interface{}, 0, cfg.Limit)
 	for rows.Next() {
-		sqlFields, err := renderSQLFields(cfg.Schema)
+		sqlFields, err := RenderSQLFields(cfg.Schema)
 		if err != nil {
 			return nil, nil, err
 		}
@@ -27,7 +27,7 @@ func query2AVRO(cfg QueryConfig) (avroBytes []byte, newCriteria []Criterion, err
 		if err != nil {
 			return nil, nil, err
 		}
-		record, err := sqlRow2native(cfg.Schema, sqlFields)
+		record, err := SqlRow2native(cfg.Schema, sqlFields)
 		if err != nil {
 			return nil, nil, err
 		}

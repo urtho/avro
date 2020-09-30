@@ -4,7 +4,7 @@ import (
 	"github.com/khezen/avro"
 )
 
-func sqlRow2native(schema *avro.RecordSchema, sqlFields []interface{}) (map[string]interface{}, error) {
+func SqlRow2native(schema *avro.RecordSchema, sqlFields []interface{}) (map[string]interface{}, error) {
 	nativeFields := make(map[string]interface{})
 	for i, field := range schema.Fields {
 		nativeField, err := sqlField2native(field.Type, sqlFields[i])

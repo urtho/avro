@@ -23,7 +23,7 @@ func query2CSV(cfg QueryConfig) (csvBytes []byte, newCriteria []Criterion, err e
 	}
 	records := make([]map[string]string, 0, cfg.Limit)
 	for rows.Next() {
-		sqlFields, err := renderSQLFields(cfg.Schema)
+		sqlFields, err := RenderSQLFields(cfg.Schema)
 		if err != nil {
 			return nil, nil, err
 		}

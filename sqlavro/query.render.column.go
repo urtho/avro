@@ -6,7 +6,7 @@ import (
 	"github.com/khezen/avro"
 )
 
-func renderSQLFields(schema *avro.RecordSchema) ([]interface{}, error) {
+func RenderSQLFields(schema *avro.RecordSchema) ([]interface{}, error) {
 	sqlFields := make([]interface{}, 0, len(schema.Fields))
 	for _, field := range schema.Fields {
 		sqlField, err := renderSQLField(field.Type)

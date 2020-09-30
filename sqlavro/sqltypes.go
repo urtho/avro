@@ -1,6 +1,10 @@
 package sqlavro
 
-import "github.com/khezen/avro"
+import (
+	"time"
+
+	"github.com/khezen/avro"
+)
 
 // SQLType -
 type SQLType string
@@ -50,7 +54,7 @@ const (
 	BigInt SQLType = "bigint"
 	// Float -
 	Float SQLType = "float"
-	Real SQLType = "real"
+	Real  SQLType = "real"
 	// Double -
 	Double SQLType = "double"
 	// Decimal -
@@ -75,7 +79,7 @@ const (
 	Bit SQLType = "bit"
 
 	// SQLDateTimeFormat -
-	SQLDateTimeFormat = "2006-01-02 15:04:05"
+	SQLDateTimeFormat = time.RFC3339
 
 	// SQLDateFormat -
 	SQLDateFormat = "2006-01-02"
