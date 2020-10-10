@@ -16,13 +16,13 @@ func sqlColumn2AVRO(columnName string, dataType SQLType, isNullable bool, defaul
 	if err != nil {
 		return nil, err
 	}
-	if len(defaultValue) > 0 {
-		defaultValue = sqlDefault2AVRODefault(dataType, defaultValue)
-	}
 	if isNullable {
 		if defaultValue == nil || strings.EqualFold("null", strings.ToLower(string(defaultValue))) {
 			fieldType = avro.UnionSchema([]avro.Schema{avro.TypeNull, fieldType})
 		} else {
+			if len(defaultValue) > 0 {
+				defaultValue = sqlDefault2AVRODefault(dataType, defaultValue)
+			}
 			fieldType = avro.UnionSchema([]avro.Schema{fieldType, avro.TypeNull})
 		}
 	}
