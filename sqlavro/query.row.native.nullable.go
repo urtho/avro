@@ -39,7 +39,6 @@ func sql2NativeFieldNullable(schema avro.Schema, sqlField interface{}) (interfac
 	case avro.Type(avro.LogicalTypeDecimal):
 		return sql2NativeDecimalNullable(sqlField)
 	}
-	fmt.Printf("Schema: %+v", subSchema)
 	return nil, ErrUnsupportedTypeForSQL
 }
 
@@ -131,7 +130,7 @@ func sql2NativeTimestampNullable(schema avro.Schema, sqlField interface{}) (inte
 		if err != nil {
 			return nil, err
 		}
-		return map[string]interface{}{"int": int32(t.Unix())}, nil
+		return map[string]interface{}{"long.timestamp-millis": t}, nil
 	}
 	return nil, nil
 }

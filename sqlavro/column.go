@@ -82,13 +82,13 @@ func sqlColumn2AVROType(columnName string, dataType SQLType, isNullable bool, nu
 		}, nil
 	case DateTime:
 		return &avro.DerivedPrimitiveSchema{
-			Type:          avro.TypeInt32,
+			Type:          avro.TypeInt64,
 			Documentation: string(DateTime),
 			LogicalType:   avro.LogicalTypeTimestamp,
 		}, nil
 	case Timestamp:
 		return &avro.DerivedPrimitiveSchema{
-			Type:          avro.TypeInt32,
+			Type:          avro.TypeInt64,
 			Documentation: string(Timestamp),
 			LogicalType:   avro.LogicalTypeTimestamp,
 		}, nil

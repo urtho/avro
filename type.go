@@ -50,7 +50,7 @@ const (
 	// LogicalTypeTime -
 	LogicalTypeTime LogicalType = "time"
 	// LogicalTypeTimestamp -
-	LogicalTypeTimestamp LogicalType = "timestamp"
+	LogicalTypeTimestamp LogicalType = "timestamp-millis"
 	// LogialTypeDuration -
 	LogialTypeDuration LogicalType = "duration"
 )

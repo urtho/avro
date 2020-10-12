@@ -58,6 +58,7 @@ func renderSQLFieldNotNull(schema avro.Schema) (interface{}, error) {
 
 func renderSQLTimestamp(schema avro.Schema) (interface{}, error) {
 	var field string
+	//var field time.Time
 	return &field, nil
 }
 
