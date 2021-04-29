@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 )
 
 // Criterion -

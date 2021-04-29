@@ -3,7 +3,7 @@ package sqlavro
 import (
 	"bytes"
 
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 )
 
 func renderQuery(dbName string, schema *avro.RecordSchema, limit int, criteria []Criterion) (statement string, params []interface{}, err error) {

@@ -9,7 +9,7 @@ import (
 
 	"github.com/golang/snappy"
 
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 )
 
 func query2CSV(cfg QueryConfig) (csvBytes []byte, newCriteria []Criterion, err error) {

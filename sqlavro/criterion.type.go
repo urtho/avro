@@ -1,7 +1,7 @@
 package sqlavro
 
 import (
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 )
 
 // EnsureCriterionTypes - search the given schema to find & set criteria types

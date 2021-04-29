@@ -1,6 +1,6 @@
 package redshiftavro
 
-import "github.com/khezen/avro"
+import "github.com/urtho/avro"
 
 // CreateConfig -
 type CreateConfig struct {

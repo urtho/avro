@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"strconv"
 
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 )
 
 func sql2StringFieldNullable(schema avro.Schema, sqlField interface{}) (string, error) {

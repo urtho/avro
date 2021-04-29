@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 )
 
 func sql2StringFieldNotNull(schema avro.Schema, sqlField interface{}) (string, error) {

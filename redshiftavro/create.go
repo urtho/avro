@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"strconv"
 
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 
-	"github.com/khezen/avro/sqlavro"
+	"github.com/urtho/avro/sqlavro"
 )
 
 // CreateTableStatement -

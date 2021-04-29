@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"strings"
 
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 )
 
 // SQLTable2AVRO - translate the given SQL table to AVRO schema

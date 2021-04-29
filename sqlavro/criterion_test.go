@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 )
 
 func TestCriterion(t *testing.T) {

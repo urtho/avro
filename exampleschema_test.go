@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 )
 
 func ExampleSchema() {

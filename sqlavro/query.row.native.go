@@ -1,7 +1,7 @@
 package sqlavro
 
 import (
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 )
 
 func SqlRow2native(schema *avro.RecordSchema, sqlFields []interface{}) (map[string]interface{}, error) {

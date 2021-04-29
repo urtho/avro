@@ -1,6 +1,6 @@
 package sqlavro
 
-import "github.com/khezen/avro"
+import "github.com/urtho/avro"
 
 func sqlRow2String(schema *avro.RecordSchema, sqlFields []interface{}) (map[string]string, error) {
 	stringFields := make(map[string]string)

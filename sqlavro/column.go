@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 )
 
 func sqlColumn2AVRO(columnName string, dataType SQLType, isNullable bool, defaultValue []byte, numPrecision, numScale, charBytesLen int) (*avro.RecordFieldSchema, error) {

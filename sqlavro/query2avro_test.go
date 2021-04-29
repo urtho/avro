@@ -9,7 +9,7 @@ import (
 	"testing"
 
 	sqlmock "github.com/DATA-DOG/go-sqlmock"
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 	"github.com/linkedin/goavro/v2"
 )
 

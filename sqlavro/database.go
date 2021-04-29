@@ -3,7 +3,7 @@ package sqlavro
 import (
 	"database/sql"
 
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 )
 
 // SQLDatabase2AVRO - fetch all tables of the given SQL database and translate them to avro schemas

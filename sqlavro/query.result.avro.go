@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 	"github.com/linkedin/goavro/v2"
 )
 

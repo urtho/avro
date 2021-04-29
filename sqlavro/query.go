@@ -3,7 +3,7 @@ package sqlavro
 import (
 	"database/sql"
 
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 )
 
 // Query -

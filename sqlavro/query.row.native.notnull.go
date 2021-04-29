@@ -5,7 +5,7 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 )
 
 func sql2NativeFieldNotNull(schema avro.Schema, sqlField interface{}) (interface{}, error) {

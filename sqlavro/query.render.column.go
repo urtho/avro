@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 )
 
 func RenderSQLFields(schema *avro.RecordSchema) ([]interface{}, error) {

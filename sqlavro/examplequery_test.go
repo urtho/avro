@@ -6,8 +6,8 @@ import (
 	"io/ioutil"
 	"time"
 
-	"github.com/khezen/avro"
-	"github.com/khezen/avro/sqlavro"
+	"github.com/urtho/avro"
+	"github.com/urtho/avro/sqlavro"
 )
 
 func ExampleQuery() {

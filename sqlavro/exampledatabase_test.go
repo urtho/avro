@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/khezen/avro/sqlavro"
+	"github.com/urtho/avro/sqlavro"
 )
 
 func ExampleSQLDatabase2AVRO() {

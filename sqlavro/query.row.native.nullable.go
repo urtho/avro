@@ -6,7 +6,7 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 )
 
 func sql2NativeFieldNullable(schema avro.Schema, sqlField interface{}) (interface{}, error) {

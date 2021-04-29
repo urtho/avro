@@ -3,7 +3,7 @@ package sqlavro
 import (
 	"time"
 
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 )
 
 // SQLType -

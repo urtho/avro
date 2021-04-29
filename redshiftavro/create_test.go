@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/khezen/avro"
+	"github.com/urtho/avro"
 )
 
 func TestCreate(t *testing.T) {
